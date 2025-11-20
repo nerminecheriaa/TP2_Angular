@@ -1,22 +1,76 @@
 <div class="detail-container">
   <div *ngIf="person; else empty">
-    <div class="card">
+    <div class="card-container" 
+         (mouseenter)="rotateCard()" 
+         (mouseleave)="resetCard()">
       
-      
-      <div class="card-body">
-        <div class="text-center mb-4">
-          <img 
-            [src]="'assets/img/' + person.path" 
-            [alt]="person.firstName + ' ' + person.name"
-            class="detail-avatar rounded-circle mb-3"
-            onerror="this.src='assets/img/profile.png'">
-          
-          <h3 class="card-title">{{ person.firstName }} {{ person.name }}</h3>
-          <h5 class="text-primary">{{ person.job }}</h5>
+      <div class="card" [class.rotated]="isRotated">
+        
+        <div class="front">
+          <div class="card-content">
+            <div class="avatar-section">
+              <div class="image-circle">
+                <img 
+                  [src]="person.path" 
+                  [alt]="person.firstName + ' ' + person.name"
+                  onerror="this.src='https://i.pravatar.cc/150?img=1'">
+              </div>
+            </div>
+            
+            <h2 class="name">{{ person.firstName }} {{ person.name }}</h2>
+            <p class="job">{{ person.job }}</p>
+            
+            <div class="age-section">
+              <span class="age">{{ person.age }} years old</span>
+            </div>
+            
+            <div class="auto-rotation">
+              <span> Auto Rotation</span>
+            </div>
+          </div>
         </div>
-        <div class="person-info">
-          <div class="info-item">
-            <span class="age-value">{{ person.age }} ans</span>
+
+        <div class="back">
+          <div class="card-content">
+            <div class="avatar-section">
+              <div class="image-circle">
+                <img 
+                  [src]="person.path" 
+                  [alt]="person.firstName + ' ' + person.name"
+                  onerror="this.src='https://i.pravatar.cc/150?img=1'">
+              </div>
+            </div>
+            
+            <h3 class="back-title"></h3>
+            
+            <div class="details-list">
+              <div class="detail-item">
+                <strong>Full Name:</strong>
+                <span>{{ person.firstName }} {{ person.name }}</span>
+              </div>
+              
+              <div class="detail-item">
+                <strong>Age:</strong>
+                <span>{{ person.age }}</span>
+              </div>
+              
+              <div class="detail-item">
+                <strong>Job:</strong>
+                <span>{{ person.job }}</span>
+              </div>
+              
+              <div class="detail-item">
+                <strong>CIN:</strong>
+                <span>{{ person.cin }}</span>
+              </div>
+              
+              <div class="detail-item">
+                <strong>ID:</strong>
+                <span>{{ person.id }}</span>
+              </div>
+            </div>
+            
+            
           </div>
         </div>
       </div>
@@ -24,5 +78,6 @@
   </div>
 
   <ng-template #empty>
+    
   </ng-template>
 </div>

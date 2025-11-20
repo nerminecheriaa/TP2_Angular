@@ -2,10 +2,10 @@
   <div class="d-flex align-items-center">
     <div class="user-avatar me-3">
       <img 
-        [src]="'assets/img/' + person.path" 
+       [src]="person.path" 
         [alt]="person.firstName + ' ' + person.name"
-        class="rounded-circle"
-        onerror="this.src='assets/img/profile.png'">
+        class="rounded-circle">
+
     </div>
     <div class="user-info">
       <h6 class="mb-1">{{ person.firstName }} {{ person.name }}</h6>

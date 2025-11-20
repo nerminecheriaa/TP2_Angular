@@ -21,7 +21,7 @@ export class CvComponent implements OnInit {
       22,
       '12345678',
       'student',
-      'profile.png',
+      'https://i.pravatar.cc/150?img=1',
   
     ),
     new Cv(
@@ -31,7 +31,7 @@ export class CvComponent implements OnInit {
       28,
       '87654321',
       'Developer',
-      'profile.png',
+      'https://i.pravatar.cc/150?img=2',
     ),
   ];
 

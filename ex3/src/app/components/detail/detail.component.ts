@@ -11,4 +11,14 @@ import { Cv } from '../../models/cv';
 })
 export class DetailComponent {
   @Input() person: Cv | null = null;
+  isRotated = false;
+
+  
+  rotateCard() {
+    this.isRotated = true;
+  }
+
+  resetCard() {
+    this.isRotated = false;
+  }
 }
