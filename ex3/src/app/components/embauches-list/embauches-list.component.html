@@ -1,0 +1,13 @@
+<div class="liste-container">
+  <div class="list-group">
+    @for (person of embauchees(); track person.id) {
+      <app-item [person]="person"></app-item>
+    }
+  </div>
+
+  @if (embauchees().length === 0) {
+    <div class="alert alert-info mt-3">
+      Aucun candidat embauché
+    </div>
+  }
+</div>

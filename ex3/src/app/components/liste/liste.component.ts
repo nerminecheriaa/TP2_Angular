@@ -8,11 +8,13 @@ import { ItemComponent } from '../item/item.component';
   standalone: true,
   imports: [CommonModule, ItemComponent],
   templateUrl: './liste.component.html',
-  styleUrls: ['./liste.component.css']
+  //styleUrls: ['./liste.component.css']
+  styleUrls:['../../shared/styles/lists.style.css']
+
 })
 export class ListeComponent {
-  persons = input.required<Cv[]>(); 
-  personSelected = output<Cv>(); 
+  persons = input.required<Cv[]>();
+  personSelected = output<Cv>();
 
   onPersonSelected(person: Cv): void {
     this.personSelected.emit(person);
