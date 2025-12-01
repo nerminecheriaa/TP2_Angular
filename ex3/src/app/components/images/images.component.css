@@ -1,0 +1,30 @@
+/* Style pour l'image en cercle */
+img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 4px solid #4a90e2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: block;
+  margin: 20px auto;
+}
+
+/* Effet au survol */
+img:hover {
+  transform: scale(1.05);
+  border-color: #2196F3;
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+}
+
+/* Animation lors du changement d'image */
+@keyframes fadeIn {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+
+/* Appliquer l'animation à l'image */
+img {
+  animation: fadeIn 0.5s ease-out;
+}
