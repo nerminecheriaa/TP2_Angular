@@ -1,48 +1,30 @@
-import { Component, OnInit ,ChangeDetectionStrategy} from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core'; // ✅ Ajoutez signal
 import { CommonModule } from '@angular/common';
-import { Cv } from '../../models/cv';
+import { CvService } from '../../services/cv.service';
 import { ListeComponent } from '../liste/liste.component';
 import { DetailComponent } from '../detail/detail.component';
+import { Cv } from '../../models/cv';
 
 @Component({
   selector: 'app-cv',
   standalone: true,
   imports: [CommonModule, ListeComponent, DetailComponent],
   templateUrl: './cv.component.html',
-  styleUrls: ['./cv.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./cv.component.css']
 })
 export class CvComponent implements OnInit {
-  persons: Cv[] = [
-    new Cv(
-      1,
-      'Cheriaa',
-      'Nermine',
-      22,
-      '12345678',
-      'student',
-      'profile2.png',
+  private cvService = inject(CvService);
   
-    ),
-    new Cv(
-      2,
-      'melki',
-      'mariem',
-      28,
-      '87654321',
-      'Developer',
-      'profile.png',
-    ),
-  ];
-
-  selectedPerson: Cv | null = null; 
-
-  constructor() { }
+  persons = signal<Cv[]>([]);
+  selectedPerson = signal<Cv | null>(null);
 
   ngOnInit(): void {
+    this.cvService.getCvs().subscribe(cvs => {
+      this.persons.set(cvs); 
+    });
   }
 
   selectPerson(person: Cv): void {
-    this.selectedPerson = person;
+    this.selectedPerson.set(person); 
   }
 }

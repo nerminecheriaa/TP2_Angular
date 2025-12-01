@@ -3,15 +3,17 @@
     <div class="list-column">
       <h3>Liste des CVs</h3>
       <app-liste 
-        [persons]="persons" 
+        [persons]="persons()" 
         (personSelected)="selectPerson($event)">
       </app-liste>
     </div>
     
     <div class="detail-column">
-      <h3 *ngIf="selectedPerson">Détails du CV</h3>
+      @if (selectedPerson()) {
+        <h3>Détails du CV</h3>
+      }
       <app-detail 
-        [person]="selectedPerson">
+        [person]="selectedPerson()">
       </app-detail>
     </div>
   </div>

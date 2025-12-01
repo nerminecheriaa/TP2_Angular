@@ -1,4 +1,4 @@
-export class Cv {
+import { Skill } from './skill';export class Cv {
   constructor(
     public id: number,
     public name: string,
@@ -7,6 +7,10 @@ export class Cv {
     public cin: string,
     public job: string,
     public path: string,
+    public skills?: Skill[],           
+    public email?: string,             
+    public phone?: string,             
+    public address?: string
     
   ) {}
 }

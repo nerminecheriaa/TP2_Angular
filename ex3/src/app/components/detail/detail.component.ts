@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Cv } from '../../models/cv';
 
@@ -10,15 +10,14 @@ import { Cv } from '../../models/cv';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent {
-  @Input() person: Cv | null = null;
-  isRotated = false;
+  person = input<Cv | null>(null);
+  isRotated = signal(false);
 
-  
   rotateCard() {
-    this.isRotated = true;
+    this.isRotated.set(true);
   }
 
   resetCard() {
-    this.isRotated = false;
+    this.isRotated.set(false);
   }
 }

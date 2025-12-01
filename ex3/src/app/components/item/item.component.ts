@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Cv } from '../../models/cv';
 
@@ -10,11 +10,10 @@ import { Cv } from '../../models/cv';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent {
-  @Input() person!: Cv;
-  @Output() itemSelected = new EventEmitter<Cv>();
+  person = input.required<Cv>(); 
+  itemSelected = output<Cv>(); 
 
   selectItem(): void {
-    this.itemSelected.emit(this.person);
-    
+    this.itemSelected.emit(this.person());
   }
 }
