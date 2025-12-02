@@ -1,0 +1,16 @@
+.navbar {
+  display: flex;
+  gap: 20px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a.active {
+  font-weight: bold;
+  color: blue;
+}
