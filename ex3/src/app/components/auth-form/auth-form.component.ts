@@ -18,13 +18,5 @@ export class AuthFormComponent {
     }
   }
 
-  // Méthode de validation personnalisée pour le mot de passe
-  validatePassword(password: string): boolean {
-    return password.length >= 4;
-  }
-
-  // Méthode pour vérifier si un champ est vide
-  isFieldEmpty(value: string): boolean {
-    return value.trim() === '';
-  }
+  
 }

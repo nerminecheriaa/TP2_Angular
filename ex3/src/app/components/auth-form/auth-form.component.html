@@ -6,7 +6,6 @@
       #emailInput="ngModel" required ngModel  name="email"  type="email" id="email" class="form-control"pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"placeholder="exemple@email.com"
     />
     
-    <!-- Messages d'erreur pour l'email -->
     @if (emailInput.invalid && emailInput.touched) {
       <div class="alert alert-danger">
         @if (emailInput.errors?.['required']) {
@@ -25,7 +24,7 @@
     <input  #passwordInput="ngModel" required ngModel name="password"  type="password" id="password" class="form-control" minlength="4" placeholder="Au moins 4 caractères"
     />
     
-    <!-- Messages d'erreur pour le mot de passe -->
+
     @if (passwordInput.invalid && passwordInput.touched) {
       <div class="alert alert-danger">
         @if (passwordInput.errors?.['required']) {
@@ -38,7 +37,7 @@
     }
   </div>
 
-  <!-- Bouton Envoyer -->
+
   <button 
     (click)="processForm(authForm)" 
     [disabled]="authForm.invalid"
