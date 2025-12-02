@@ -2,17 +2,17 @@
   <div class="layout-horizontal">
     <div class="list-column">
       <h3>Liste des CVs</h3>
-      <app-liste 
-        [persons]="persons()" 
+      <app-liste
+        [persons]="persons()"
         (personSelected)="selectPerson($event)">
       </app-liste>
     </div>
-    
+
     <div class="detail-column">
       @if (selectedPerson()) {
         <h3>Détails du CV</h3>
       }
-      <app-detail 
+      <app-detail
         [person]="selectedPerson()">
       </app-detail>
     </div>

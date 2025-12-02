@@ -54,19 +54,19 @@ export class CvService {
       phone: data.phone || '',
       address: data.address || ''
     };
-    
+
     return cv;
   }
 
-private getValidImagePath(imagePath: string | undefined, id: number): string {
-  if (imagePath?.startsWith('http')) {
-    return imagePath;
-  }
-  
+  private getValidImagePath(imagePath: string | undefined, id: number): string {
+    if (imagePath?.startsWith('http')) {
+      return imagePath;
+    }
 
-  return 'profile.png';
-}
-  
+
+    return 'profile.png';
+  }
+
 
 
 

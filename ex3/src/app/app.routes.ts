@@ -12,6 +12,6 @@ export const routes: Routes = [
   {path: 'embauches', component: EmbauchesListComponent},
   { path: 'carousel', component: CarouselComponent },
 
-  { path: '**', redirectTo: 'cv' },
+  { path: '**', redirectTo: '' },
 
 ];

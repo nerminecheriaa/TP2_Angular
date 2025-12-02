@@ -1,28 +1,28 @@
 <div class="detail-container">
   @if (person(); as personData) {
-    <div class="card-container" 
-         (mouseenter)="rotateCard()" 
+    <div class="card-container"
+         (mouseenter)="rotateCard()"
          (mouseleave)="resetCard()">
-      
+
       <div class="card" [class.rotated]="isRotated()">
 
         <div class="front">
           <div class="card-content">
             <div class="avatar-section">
               <div class="image-circle">
-                <img 
-                 [src]="'assets/img/' + personData.path" 
-                 [alt]="personData.firstName + ' ' + personData.name">
+                <img
+                  [src]="'assets/img/' + personData.path"
+                  [alt]="personData.firstName + ' ' + personData.name">
               </div>
             </div>
-            
+
             <h2 class="name">{{ personData.firstName }} {{ personData.name }}</h2>
             <p class="job">{{ personData.job }}</p>
-            
+
             <div class="age-section">
               <span class="age">{{ personData.age }} ans</span>
             </div>
-            
+
             <div class="auto-rotation">
               <i class="fas fa-sync-alt"></i>
               <span>Auto Rotation</span>
@@ -34,41 +34,41 @@
           <div class="card-content">
             <div class="avatar-section">
               <div class="image-circle">
-                <img 
-                [src]="'assets/img/' + personData.path" 
-                [alt]="personData.firstName + ' ' + personData.name">
+                <img
+                  [src]="'assets/img/' + personData.path"
+                  [alt]="personData.firstName + ' ' + personData.name">
               </div>
             </div>
-            
+
             <h3 class="back-title">Complete Details</h3>
-            
+
             <div class="details-list">
               <div class="detail-item">
                 <strong>Full Name:</strong>
                 <span>{{ personData.firstName }} {{ personData.name }}</span>
               </div>
-              
+
               <div class="detail-item">
                 <strong>Age:</strong>
                 <span>{{ personData.age }} ans</span>
               </div>
-              
+
               <div class="detail-item">
                 <strong>Job:</strong>
                 <span>{{ personData.job }}</span>
               </div>
-              
+
               <div class="detail-item">
                 <strong>CIN:</strong>
                 <span>{{ personData.cin }}</span>
               </div>
-              
+
               <div class="detail-item">
                 <strong>ID:</strong>
                 <span>{{ personData.id }}</span>
               </div>
             </div>
-            
+
             <div class="auto-rotation">
               <i class="fas fa-sync-alt"></i>
               <span>Auto Rotation</span>

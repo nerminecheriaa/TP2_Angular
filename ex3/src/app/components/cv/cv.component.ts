@@ -14,17 +14,17 @@ import { Cv } from '../../models/cv';
 })
 export class CvComponent implements OnInit {
   private cvService = inject(CvService);
-  
+
   persons = signal<Cv[]>([]);
   selectedPerson = signal<Cv | null>(null);
 
   ngOnInit(): void {
     this.cvService.getCvs().subscribe(cvs => {
-      this.persons.set(cvs); 
+      this.persons.set(cvs);
     });
   }
 
   selectPerson(person: Cv): void {
-    this.selectedPerson.set(person); 
+    this.selectedPerson.set(person);
   }
 }

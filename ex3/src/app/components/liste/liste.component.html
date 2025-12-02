@@ -1,13 +1,13 @@
 <div class="liste-container">
   <div class="list-group">
     @for (person of persons(); track person.id) {
-      <app-item 
+      <app-item
         [person]="person"
         (itemSelected)="onPersonSelected($event)">
       </app-item>
     }
   </div>
-  
+
   @if (persons().length === 0) {
     <div class="alert alert-info mt-3">
       Aucun CV disponible
