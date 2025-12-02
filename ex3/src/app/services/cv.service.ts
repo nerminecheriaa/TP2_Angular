@@ -32,7 +32,7 @@ export class CvService {
         this.toaster.showError('Problème API détecté. FakeCvs affichés.');
         return this.fakeCvService.getFakeCvs();
       })
-    ).subscribe();
+    ).subscribe(cvs => this.cvsSubject.next(cvs));
   }
 
 
