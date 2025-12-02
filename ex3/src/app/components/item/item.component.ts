@@ -31,5 +31,6 @@ export class ItemComponent {
   }
   selectItem(): void {
     this.itemSelected.emit(this.person());
+    document.documentElement.scrollTop = 0
   }
 }
