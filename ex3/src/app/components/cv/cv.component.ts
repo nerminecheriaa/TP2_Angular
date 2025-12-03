@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal } from '@angular/core'; 
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CvService } from '../../services/cv.service';
 import { ListeComponent } from '../liste/liste.component';

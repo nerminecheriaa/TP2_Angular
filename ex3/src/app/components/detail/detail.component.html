@@ -1,3 +1,4 @@
+
 <div class="detail-container">
   @if (person(); as personData) {
     <div class="card-container"
@@ -42,32 +43,7 @@
 
             <h3 class="back-title">Complete Details</h3>
 
-            <div class="details-list">
-              <div class="detail-item">
-                <strong>Full Name:</strong>
-                <span>{{ personData.firstName }} {{ personData.name }}</span>
-              </div>
 
-              <div class="detail-item">
-                <strong>Age:</strong>
-                <span>{{ personData.age }} ans</span>
-              </div>
-
-              <div class="detail-item">
-                <strong>Job:</strong>
-                <span>{{ personData.job }}</span>
-              </div>
-
-              <div class="detail-item">
-                <strong>CIN:</strong>
-                <span>{{ personData.cin }}</span>
-              </div>
-
-              <div class="detail-item">
-                <strong>ID:</strong>
-                <span>{{ personData.id }}</span>
-              </div>
-            </div>
 
         <button
         class="btn btn-success btn-sm"
@@ -75,6 +51,13 @@
         >
         {{ isHired() ? 'Embauché' : 'Embaucher' }}
       </button>
+            <button
+              class="btn btn-primary btn-sm"
+              (click)="goToProfile(); $event.stopPropagation()"
+            >
+              Détail
+            </button>
+
 
             <div class="auto-rotation">
               <i class="fas fa-sync-alt"></i>

@@ -1,4 +1,4 @@
-import { Component, input, signal , computed, inject} from '@angular/core';
+import { Component, input, signal , computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmbaucheService } from '../../services/embauche.service';
 import { Cv } from '../../models/cv';
@@ -14,7 +14,6 @@ import { Router } from '@angular/router';
 export class DetailComponent {
   person = input<Cv | null>(null);
 
-
   isRotated = signal(false);
   private embaucheService = inject(EmbaucheService);
   private router = inject(Router);
@@ -27,16 +26,25 @@ export class DetailComponent {
     this.isRotated.set(false);
   }
 
- // Signal calculé pour vérifier si la personne est déjà embauchée
-  isHired = computed(() =>
-    this.person() ? this.embaucheService.isHired(this.person()!.id) : false
-  );
+  // Vérifie si embauché
+  isHired = computed(() => {
+    const p = this.person();
+    return p ? this.embaucheService.isHired(p.id) : false;
+  });
 
   embaucher(): void {
-    if(this.embaucheService.embaucher(this.person()!)){
-    this .router.navigate(['/embauches']);}
+    const p = this.person();
+    if (!p) return;          // 🔥 empêche NullPointer
+
+    if (this.embaucheService.embaucher(p)) {
+      this.router.navigate(['/embauches']);
+    }
   }
 
+  goToProfile() {
+    const p = this.person();
+    if (!p) return;          // 🔥 empêche NullPointer
 
-
+    this.router.navigate(['/cv/profile', p.id]);
+  }
 }
