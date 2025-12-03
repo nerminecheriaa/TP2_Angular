@@ -1,4 +1,3 @@
-
 <div class="detail-container">
   @if (person(); as personData) {
     <div class="card-container"
@@ -44,20 +43,18 @@
             <h3 class="back-title">Complete Details</h3>
 
 
-
         <button
         class="btn btn-success btn-sm"
         (click)="embaucher(); $event.stopPropagation()"
         >
         {{ isHired() ? 'Embauché' : 'Embaucher' }}
       </button>
-            <button
-              class="btn btn-primary btn-sm"
-              (click)="goToProfile(); $event.stopPropagation()"
-            >
-              Détail
-            </button>
-
+      <button
+        class="btn-details btn-success btn-sm"
+        (click)="gotoDetails(); $event.stopPropagation()"
+        >
+        {{ 'Voir Détails' }}
+      </button>
 
             <div class="auto-rotation">
               <i class="fas fa-sync-alt"></i>

@@ -2,13 +2,12 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CvService } from '../../services/cv.service';
 import { ListeComponent } from '../liste/liste.component';
-import { DetailComponent } from '../detail/detail.component';
+import { CvCardComponent } from  '../cv-card/cv-card.component'
 import { Cv } from '../../models/cv';
-
 @Component({
   selector: 'app-cv',
   standalone: true,
-  imports: [CommonModule, ListeComponent, DetailComponent],
+  imports: [CommonModule, ListeComponent, CvCardComponent],//ken DetailComponent
   templateUrl: './cv.component.html',
   styleUrls: ['./cv.component.css']
 })

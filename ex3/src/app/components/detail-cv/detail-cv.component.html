@@ -1,0 +1,75 @@
+@if (cv) {
+<div class="detail-page">
+  <div class="container">
+    <div class="detail-header">
+      <h1>CV {{ cv.firstName }} {{ cv.name }}</h1>
+      <button class="btn-close" routerLink="/cv">✕</button>
+    </div>
+
+    <div class="detail-content">
+      <div class="profile-section">
+        <img [src]="cv.path" alt="{{ cv.firstName }} {{ cv.name }}" class="profile-image">
+        <h2>"To be or not to be, this is my awesome motto!"</h2>
+      </div>
+
+      <div class="info-section">
+        <h3><i class="fa fa-info-circle"></i> Informations</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <label>Name</label>
+            <p>{{ cv.name }}</p>
+          </div>
+          <div class="info-item">
+            <label>Firstname</label>
+            <p>{{ cv.firstName }}</p>
+          </div>
+          <div class="info-item">
+            <label>Job</label>
+            <p>{{ cv.job }}</p>
+          </div>
+          <div class="info-item">
+            <label>Age</label>
+            <p>{{ cv.age }}</p>
+          </div>
+          <div class="info-item">
+            <label>Cin</label>
+            <p>{{ cv.cin }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="job-description">
+        <h3>Job Description</h3>
+        <p>Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
+
+        <div class="stats">
+          <div class="stat-item">
+            <h4>235</h4>
+            <p>Followers</p>
+          </div>
+          <div class="stat-item">
+            <h4>38</h4>
+            <p>Following</p>
+          </div>
+          <div class="stat-item">
+            <h4>35</h4>
+            <p>Projects</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn btn-primary" (click)="embaucher()">Embaucher</button>
+        <button class="btn btn-danger" (click)="deleteCV()">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
+} @else {
+<div class="not-found">
+    <div class="alert alert-warning">
+        <h2>CV not found!</h2>
+        <button routerLink="/cv" class="btn btn-primary">Back to CV List</button>
+    </div>
+</div>
+}
