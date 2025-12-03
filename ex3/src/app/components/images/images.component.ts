@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { interval, map } from 'rxjs';
+import { ImagesService } from '../../services/images.service';
 
 @Component({
   standalone: true,
@@ -11,22 +11,14 @@ import { interval, map } from 'rxjs';
 })
 export class ImagesComponent implements OnInit {
 
-  temps = 1000; 
-  taille = 150; 
-
-  images = [
-    'profile1.png',
-    'profile2.png',
-    'profile3.png'
-  ];
-
+  temps = 1000;
+  taille = 150;
   currentImage = '';
 
-  ngOnInit(): void {
+  private imagesService = inject(ImagesService);  
 
-    interval(this.temps).pipe(
-      map(i => this.images[i % this.images.length])
-    )
-    .subscribe(img => this.currentImage = img);
+  ngOnInit(): void {
+    this.imagesService.getImageStream(this.temps)
+      .subscribe(img => this.currentImage = img);
   }
 }
