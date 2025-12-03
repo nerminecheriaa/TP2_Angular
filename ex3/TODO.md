@@ -1,0 +1,1 @@
+- [x] Move embaucher button from outside the card-container to inside the back side of the rotating card

@@ -69,6 +69,13 @@
               </div>
             </div>
 
+        <button
+        class="btn btn-success btn-sm"
+        (click)="embaucher(); $event.stopPropagation()"
+        >
+        {{ isHired() ? 'Embauché' : 'Embaucher' }}
+      </button>
+
             <div class="auto-rotation">
               <i class="fas fa-sync-alt"></i>
               <span>Auto Rotation</span>
@@ -81,4 +88,5 @@
     <div class="empty-state">
     </div>
   }
+
 </div>

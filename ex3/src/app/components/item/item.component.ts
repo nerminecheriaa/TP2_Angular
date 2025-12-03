@@ -20,15 +20,6 @@ export class ItemComponent {
   private embaucheService = inject(EmbaucheService);
   private router = inject(Router)
 
-  // Signal calculé pour vérifier si la personne est déjà embauchée
-  isHired = computed(() =>
-    this.embaucheService.isHired(this.person().id)
-  );
-
-  embaucher(): void {
-    if(this.embaucheService.embaucher(this.person())){
-    this .router.navigate(['/embauches']);}
-  }
   selectItem(): void {
     this.itemSelected.emit(this.person());
     document.documentElement.scrollTop = 0
