@@ -1,0 +1,23 @@
+<div class="cv-profile-container" *ngIf="cv; else notFound">
+  <div class="profile-card">
+    <div class="avatar-section">
+      <img [src]="'assets/img/' + cv.path"
+           [alt]="cv.firstName + ' ' + cv.name">
+    </div>
+    <div class="info-section">
+      <h2>{{ cv.firstName }} {{ cv.name }}</h2>
+      <p class="job">{{ cv.job }}</p>
+      <p class="age">Âge: {{ cv.age }} ans</p>
+      <p class="cin">CIN: {{ cv.cin }}</p>
+      <p class="email">Email: {{ cv.email }}</p>
+      <p class="phone">Phone: {{ cv.phone }}</p>
+      <p class="address">Address: {{ cv.address }}</p>
+      <p class="id">ID: {{ cv.id }}</p>
+    </div>
+  </div>
+
+</div>
+
+<ng-template #notFound>
+  <p class="alert alert-warning">CV non trouvé.</p>
+</ng-template>
