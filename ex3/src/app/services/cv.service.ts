@@ -26,8 +26,8 @@ export class CvService {
 
   private loadCvs(): void {
     this.http.get<CvApiResponse[]>(this.apiUrl).pipe(
-      map(apiList => apiList.map(api => mapCvApiToCv(api))), 
-      tap(mappedCvs => this.cvsSubject.next(mappedCvs)),    
+      map(apiList => apiList.map(api => mapCvApiToCv(api))),
+      tap(mappedCvs => this.cvsSubject.next(mappedCvs)),
       catchError(error => {
         this.toaster.showError('Problème API détecté. FakeCvs affichés.');
         return this.fakeCvService.getFakeCvs();
@@ -56,7 +56,9 @@ export class CvService {
       }),
       catchError(() => this.fakeCvService.deleteFakeCv(id))
     );
-  }
+
+
+}
 
 
 }

@@ -3,7 +3,6 @@ import { CvComponent } from './components/cv/cv.component';
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
 import { ImagesComponent } from './components/images/images.component';
 import { EmbauchesListComponent } from './components/embauches-list/embauches-list.component';
-import {CarouselComponent} from './components/carousel/carousel.component';
 import {CvProfileComponent} from './components/cv-profile/cv-profile.component';
 
 export const routes: Routes = [
@@ -11,7 +10,6 @@ export const routes: Routes = [
   { path: 'auth', component: AuthFormComponent },
   { path: 'img', component: ImagesComponent },
   {path: 'embauches', component: EmbauchesListComponent},
-  { path: 'carousel', component: CarouselComponent },
   { path: 'cv/profile/:id', component: CvProfileComponent },
 
   { path: '**', redirectTo: '' },
