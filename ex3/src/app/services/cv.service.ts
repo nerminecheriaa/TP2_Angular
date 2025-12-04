@@ -7,7 +7,7 @@ import { ToasterService } from './toaster.service';
 import { catchError, of, tap } from 'rxjs';
 import { CvApiResponse } from '../models/cv-api.model';
 import { mapCvApiToCv } from '../helpers/cv-mapper.helper';
-
+import { EmbaucheService } from './embauche.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +19,7 @@ export class CvService {
   private http = inject(HttpClient);
   private fakeCvService = inject(FakeCvService);
   private toaster = inject(ToasterService);
+  private embaucheService = inject(EmbaucheService);
 
   constructor() {
     this.loadCvs();
@@ -64,6 +65,7 @@ export class CvService {
 
   deleteCv(id: number) {
     const newCvs = this.cvs().filter(cv => cv.id !== id);
+    this.embaucheService.removeFromEmbauches(id); //supprimer si cv emabauché
     this.cvs.set(newCvs);
     this.toaster.showSuccess('CV supprimé localement', 'Suppression');
     return of(true); // Observable<boolean> pour compatibilité
