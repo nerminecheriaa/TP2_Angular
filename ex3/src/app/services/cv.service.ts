@@ -40,7 +40,7 @@ export class CvService {
       })
     ).subscribe(apiCvs => {
       if (apiCvs.length) {
-        const cvs = apiCvs.map(api => mapCvApiToCv(api)); 
+        const cvs = apiCvs.map(api => mapCvApiToCv(api));
         this.cvs.set(cvs);
         this.toaster.showSuccess('CVs chargés depuis l’API.');
       }
@@ -48,7 +48,8 @@ export class CvService {
   }
 
   getCvs() {
-    return of(this.cvs());
+    return this.cvs.asReadonly();
+    //return of(this.cvs());
   }
 
   getCvById(id: number) {
