@@ -37,4 +37,9 @@ export class EmbaucheService {
   isHired(cvId: number): boolean {
     return this._embauches().some(cv => cv.id === cvId);
   }
+  removeFromEmbauches(id: number): void {
+    this._embauches.update(list => list.filter(cv => cv.id !== id));}
 }
+  //supprimer embauché
+  
+  
