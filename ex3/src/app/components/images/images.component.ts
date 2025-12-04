@@ -22,3 +22,4 @@ export class ImagesComponent implements OnInit {
       .subscribe(img => this.currentImage = img);
   }
 }
+
