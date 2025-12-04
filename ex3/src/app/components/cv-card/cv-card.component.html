@@ -42,19 +42,22 @@
 
             <h3 class="back-title">Complete Details</h3>
 
+            <div class="action-buttons">
+              <button
+                class="btn btn-primary btn-sm"
+                (click)="embaucher(); $event.stopPropagation()"
+              >
+                {{ isHired() ? 'Embauché' : 'Embaucher' }}
+              </button>
 
-        <button
-        class="btn btn-success btn-sm"
-        (click)="embaucher(); $event.stopPropagation()"
-        >
-        {{ isHired() ? 'Embauché' : 'Embaucher' }}
-      </button>
-      <button
-        class="btn-details btn-success btn-sm"
-        (click)="gotoDetails(); $event.stopPropagation()"
-        >
-        {{ 'Voir Détails' }}
-      </button>
+              <button
+                class="btn btn-primary btn-sm"
+                (click)="gotoDetails(); $event.stopPropagation()"
+              >
+                Voir Détails
+              </button>
+            </div>
+
 
             <div class="auto-rotation">
               <i class="fas fa-sync-alt"></i>
